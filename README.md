@@ -9,7 +9,7 @@ Install
 Clone onto your laptop:
 
     mkdir -p ~/Development && cd ~/Development
-    git clone git://github.com/civilcode/dotfiles.git
+    git clone https://github.com/civilcode/dotfiles.git
 
 Install [rcm](https://github.com/thoughtbot/rcm):
 
