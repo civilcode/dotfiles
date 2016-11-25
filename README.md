@@ -32,7 +32,7 @@ configuration options:
 * Exclude the `README.md` and `LICENSE` files, which are part of
   the `dotfiles` repository but do not need to be symlinked in.
 * Give precedence to personal overrides which by default are placed in
-  `~/dotfiles-local`
+  `~/Development/dotfiles-local`
 
 You can safely run `rcup` multiple times to update:
 
