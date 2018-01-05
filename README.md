@@ -44,14 +44,17 @@ any new files in the repository.
 Make your own customizations
 ----------------------------
 
-Put your customizations in dotfiles appended with `.local`:
+Create a directory for your personal customizations:
 
-* `~/.aliases.local`
-* `~/.git_template.local/*`
-* `~/.gitconfig.local`
-* `~/.psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
+    mkdir ~/Development/dotfiles-local
+
+Put your customizations in `~/dotfiles-local` appended with `.local`:
+
+* `~/Development/dotfiles-local/aliases.local`
+* `~/Development/dotfiles-local/git_template.local/*`
+* `~/Development/dotfiles-local/gitconfig.local`
+* `~/Development/dotfiles-local/psqlrc.local` (we supply a blank `psqlrc.local` to prevent `psql` from
   throwing an error, but you should overwrite the file with your own copy)
-* `~/.bash.local`
 
 For example, your `~/.aliases.local` might look like this:
 
