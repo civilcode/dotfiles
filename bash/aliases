@@ -1,0 +1,20 @@
+# Add the following line to your ~/.bash_profile
+# source ~/.bash/aliases
+#
+# You can have your local aliases in this file: ~/.bash/aliases.local
+
+# Elixir
+alias mixps='mix phoenix.server'
+alias mixcw='mix compile --force | grep warning'
+alias mixpc='MIX_ENV=test mix project.check'
+alias mixrs='MIX_ENV=test mix do ecto.drop, ecto.create'
+alias mixt='MIX_ENV=test mix do ecto.drop, test'
+alias imix='iex -S mix'
+alias imixps='iex -S mix phoenix.server'
+
+alias xps='iex -S mix phoenix.server'
+alias xrs='MIX_ENV=test mix do ecto.drop, ecto.create'
+alias xcf='mix compile --force | ack warning'
+
+# Include custom aliases
+[[ -f ~/.bash/aliases.local ]] && source ~/.bash/aliases.local
