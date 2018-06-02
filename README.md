@@ -32,7 +32,7 @@ configuration options:
 * Exclude the `README.md` and `LICENSE` files, which are part of
   the `dotfiles` repository but do not need to be symlinked in.
 * Give precedence to personal overrides which by default are placed in
-  `~/Development/dotfiles-local`
+  `~/Development/dotfiles.local`
 
 You can safely run `rcup` multiple times to update:
 
@@ -46,14 +46,14 @@ Make your own customizations
 
 Create a directory for your personal customizations:
 
-    mkdir ~/Development/dotfiles-local
+    mkdir ~/Development/dotfiles.local
 
-Put your customizations in `~/dotfiles-local` appended with `.local`:
+Put your customizations in `~/dotfiles.local` appended with `.local`:
 
-* `~/Development/dotfiles-local/aliases.local`
-* `~/Development/dotfiles-local/git_template.local/*`
-* `~/Development/dotfiles-local/gitconfig.local`
-* `~/Development/dotfiles-local/psqlrc.local` (we supply a blank `psqlrc.local` to prevent `psql` from
+* `~/Development/dotfiles.local/aliases.local`
+* `~/Development/dotfiles.local/git_template.local/*`
+* `~/Development/dotfiles.local/gitconfig.local`
+* `~/Development/dotfiles.local/psqlrc.local` (we supply a blank `psqlrc.local` to prevent `psql` from
   throwing an error, but you should overwrite the file with your own copy)
 
 For example, your `~/.aliases.local` might look like this:
