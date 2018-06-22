@@ -5,6 +5,7 @@
   ci = commit
   df = diff
   dfc = diff --cached
+  track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 [core]
   excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
@@ -14,9 +15,11 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [user]
-  name = CivilCode
-  email = noreply@civilcode.io
+	name = CivilCode Pairing
+	email = 23707376+civilcode-pairing@users.noreply.github.com
 [commit]
-  template = /Users/admin/.stCommitMsg
+	template = ~/.gitmessage
 [include]
   path = ~/.gitconfig.local
+[push]
+	default = current
