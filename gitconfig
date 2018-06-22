@@ -15,8 +15,8 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [user]
-  name = CivilCode
-  email = noreply@civilcode.io
+	name = CivilCode Pairing
+	email = 23707376+civilcode-pairing@users.noreply.github.com
 [commit]
   template = /Users/admin/.stCommitMsg
 [include]
