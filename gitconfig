@@ -25,3 +25,5 @@
   path = ~/.gitconfig.local
 [push]
   default = current
+[credential]
+  helper = cache --timeout=3600
