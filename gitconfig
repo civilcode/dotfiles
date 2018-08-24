@@ -8,6 +8,7 @@
   track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 [core]
   excludesfile = ~/.gitignore_global
+  editor = vim
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
@@ -15,12 +16,12 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [user]
-	name = CivilCode Pairing
-	email = 23707376+civilcode-pairing@users.noreply.github.com
+  name = CivilCode Pairing
+  email = 23707376+civilcode-pairing@users.noreply.github.com
 [commit]
-	template = ~/.gitmessage
-        cleanup = strip 
+  template = ~/.gitmessage
+  cleanup = strip
 [include]
   path = ~/.gitconfig.local
 [push]
-	default = current
+  default = current
