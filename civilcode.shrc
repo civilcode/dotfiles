@@ -7,5 +7,6 @@ alias deatm="docker-compose exec -e MIX_ENV=test application mix"
 
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
-[[ -f ~/.local.shrc ]] && source ~/.shrc.local
+[[ -n $ZSH_VERSION ]] && eval "$(direnv hook zsh)"
+
 [[ -f ~/.shrc.local ]] && source ~/.shrc.local
