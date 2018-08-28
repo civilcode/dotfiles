@@ -2,6 +2,9 @@ source $HOME/.civilcode.erlang
 
 alias dea="docker-compose exec application"
 alias deat="docker-compose exec -e MIX_ENV=test application"
+alias deam="docker-compose exec application mix"
+alias deatm="docker-compose exec -e MIX_ENV=test application mix"
+
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
 [[ -f ~/.local.shrc ]] && source ~/.shrc.local
