@@ -1,9 +1,9 @@
 source $HOME/.civilcode.erlang
 
-alias dea="docker-compose exec application"
-alias deat="docker-compose exec -e MIX_ENV=test application"
-alias deam="docker-compose exec application mix"
-alias deatm="docker-compose exec -e MIX_ENV=test application mix"
+alias dea="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' application"
+alias deat="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' -e MIX_ENV=test application"
+alias deam="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' application mix"
+alias deatm="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' -e MIX_ENV=test application mix"
 
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
