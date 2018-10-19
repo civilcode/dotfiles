@@ -1,12 +1,18 @@
 source $HOME/.civilcode.erlang
 
+# aliases
+
 alias dea="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' application"
 alias deat="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' -e MIX_ENV=test application"
 alias deam="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' application mix"
 alias deatm="docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' -e MIX_ENV=test application mix"
-
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
+# env
+
+export GIT_EDITOR=vim
 [[ -n $ZSH_VERSION ]] && eval "$(direnv hook zsh)"
+
+# custom shell
 
 [[ -f ~/.shrc.local ]] && source ~/.shrc.local
