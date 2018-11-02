@@ -2,19 +2,21 @@ source $HOME/.civilcode.erlang
 
 alias dea="docker-compose exec application"
 alias deat="docker-compose exec -e MIX_ENV=test application"
-alias deam="docker-compose exec application mix"
-alias deatm="docker-compose exec -e MIX_ENV=test application mix"
 alias dcs="docker-compose stop"
 alias dcu="docker-compose up -d"
+alias deamc="mix_command_in_child_app"
+alias deatmc="mix_command_in_child_app_test"
 
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
-function deamtw() {
-	docker-compose exec application mix test.watch
-}
-function deamtwl() {
+function mix_command_in_child_app() {
 	app="$1"; shift
-	docker-compose exec application mix cmd --app $app mix test.watch $*
+	docker-compose exec application bash -c "cd /app/apps/$app && $*"
+}
+
+function mix_command_in_child_app_test() {
+	app="$1"; shift
+	docker-compose exec -e MIX_ENV=test application bash -c "cd /app/apps/$app && $*"
 }
 
 [[ -n $ZSH_VERSION ]] && eval "$(direnv hook zsh)"
