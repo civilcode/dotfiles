@@ -2,26 +2,26 @@ source $HOME/.civilcode.erlang
 
 # aliases
 
-alias dea="docker-compose-exec application"
-alias deat="docker-compose-exec -e MIX_ENV=test application"
-alias deam="docker-compose-exec application mix"
-alias deatm="docker-compose-exec -e MIX_ENV=test application mix"
-alias deamc="mix_command_in_child_app"
-alias deatmc="mix_command_in_child_app_test"
+alias dea="_docker_compose_exec application"
+alias deat="_docker_compose_exec -e MIX_ENV=test application"
+alias deam="_docker_compose_exec application mix"
+alias deatm="_docker_compose_exec -e MIX_ENV=test application mix"
+alias deamc="_mix_command_in_child_app"
+alias deatmc="_mix_command_in_child_app_test"
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
-function docker-compose-exec() {
+_docker_compose_exec() {
 	docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' $*
 }
 
-function mix_command_in_child_app() {
+_mix_command_in_child_app() {
 	app="$1"; shift
-	docker-compose-exec application bash -c "cd /app/apps/$app && $*"
+	_docker_compose_exec application bash -c "cd /app/apps/$app && $*"
 }
 
-function mix_command_in_child_app_test() {
+_mix_command_in_child_app_test() {
 	app="$1"; shift
-	docker-compose-exec -e MIX_ENV=test application bash -c "cd /app/apps/$app && $*"
+	_docker_compose_exec -e MIX_ENV=test application bash -c "cd /app/apps/$app && $*"
 }
 
 # env
