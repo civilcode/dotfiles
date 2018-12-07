@@ -10,19 +10,38 @@ alias deamc="_mix_command_in_child_app"
 alias deatmc="_mix_command_in_child_app_test"
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
-_docker_compose_exec() {
-	docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' $*
-}
+if [ "$SHELL" = "/bin/bash" ]; then
+	function _docker_compose_exec() {
+	       	env_part=$( printf '"%q"  ' "-kernel shell_history enabled") 
+	     	docker-compose exec -e ERL_AFLAGS="${env_part}" ${1} "${2}"
+	}
+	
+	function _mix_command_in_child_app() {
+		app="$1"; shift
+		_docker_compose_exec "application bash -c" "cd /app/apps/$app && $*"
+	}
+	
+	function _mix_command_in_child_app_test() {
+		app="$1"; shift
+		_docker_compose_exec "-e MIX_ENV=test application bash -c" "cd /app/apps/$app && $*"
+	}
 
-_mix_command_in_child_app() {
-	app="$1"; shift
-	_docker_compose_exec application bash -c "cd /app/apps/$app && $*"
-}
+else
+	function _docker_compose_exec() {
+		docker-compose exec -e ERL_AFLAGS='-kernel shell_history enabled' $*
+	}
+	
+	function _mix_command_in_child_app() {
+		app="$1"; shift
+		_docker_compose_exec application bash -c "cd /app/apps/$app && $*"
+	}
+	
+	function _mix_command_in_child_app_test() {
+		app="$1"; shift
+		_docker_compose_exec -e MIX_ENV=test application bash -c "cd /app/apps/$app && $*"
+	}
 
-_mix_command_in_child_app_test() {
-	app="$1"; shift
-	_docker_compose_exec -e MIX_ENV=test application bash -c "cd /app/apps/$app && $*"
-}
+fi
 
 # env
 
