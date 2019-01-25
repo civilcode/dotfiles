@@ -3,6 +3,17 @@ CivilCode dotfiles
 
 ![prompt](http://images.thoughtbot.com/thoughtbot-dotfiles-prompt.png)
 
+Prerequisites
+-------------
+
+The following dependencies have been installed using the [laptop](https://github.com/civilcode/laptop)
+script and you SHOULD NOT have to install these manually.
+
+Install [rcm](https://github.com/thoughtbot/rcm):
+
+    brew tap thoughtbot/formulae
+    brew install rcm
+
 Install
 -------
 
@@ -10,11 +21,6 @@ Clone onto your laptop:
 
     mkdir -p ~/Development && cd ~/Development
     git clone https://github.com/civilcode/dotfiles.git
-
-Install [rcm](https://github.com/thoughtbot/rcm):
-
-    brew tap thoughtbot/formulae
-    brew install rcm
 
 Install the dotfiles:
 
