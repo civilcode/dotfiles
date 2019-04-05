@@ -12,6 +12,8 @@ alias deamc="_mix_command_in_child_app"
 alias deatmc="_mix_command_in_child_app_test"
 alias elixir-format="watchman -- trigger ./ format '**/*.ex' '**/*.exs' '**/*.default' -- mix format"
 
+alias sco="_prepare_slack_checkout"
+
 if [ "$SHELL" = "/bin/bash" ]; then
 	function _docker_compose_exec() {
 	  env_part=$( printf '"%q"  ' "-kernel shell_history enabled")
@@ -43,6 +45,19 @@ else
 		_docker_compose_exec -e MIX_ENV=test application bash -c "cd /app/apps/$app && $*"
 	}
 fi
+
+function _prepare_slack_checkout() {
+	date=$(date +"%Y%m%d")
+	github_user=$(security find-internet-password -s github.com | grep acct | sed 's/^.*="\(.*\)".*$/\1/')
+
+	base_hub_options=(--include-pulls -a $github_user -d $date)
+	open_issues=$(hub issue $base_hub_options -s open -f "• in-progress: _%t_; add details%n%U%n")
+	closed_issues=$(hub issue $base_hub_options -s closed -f "• completed: _%t_; add details%n%U%n")
+
+	checkout_message="$open_issues\n$closed_issues"
+	echo $checkout_message | pbcopy
+	echo "THE FOLLOWING LINES HAVE BEEN COPIED TO YOUR BUFFER:\n$checkout_message"
+}
 
 # env
 
