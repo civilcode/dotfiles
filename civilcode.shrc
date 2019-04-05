@@ -47,7 +47,8 @@ else
 fi
 
 function _prepare_slack_checkout() {
-	date=$(date +"%Y%m%d")
+	# Optional argument: date (format YYYYMMDD)
+	date="${1:-$(date +"%Y%m%d")}"
 	github_user=$(security find-internet-password -s github.com | grep acct | sed 's/^.*="\(.*\)".*$/\1/')
 
 	base_hub_options=(--include-pulls -a $github_user -d $date)
