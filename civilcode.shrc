@@ -51,13 +51,12 @@ function _prepare_slack_checkout() {
 	date="${1:-$(date +"%Y%m%d")}"
 	github_user=$(security find-internet-password -s github.com | grep acct | sed 's/^.*="\(.*\)".*$/\1/')
 
-	base_hub_options=(--include-pulls --sort updated -a $github_user -d $date)
+	base_hub_options=(--include-pulls --sort updated --sort-ascending -a $github_user -d $date)
 	open_issues=$(hub issue $base_hub_options -s open -f "• in-progress: _%t_; STATUS%n%U%n")
 	closed_issues=$(hub issue $base_hub_options -s closed -f "• completed: _%t_%n%U%n")
 
 	checkout_message="$open_issues\n$closed_issues"
-	# Use sed to reverse lines
-	echo $checkout_message | sed '1!G;h;$!d' | pbcopy
+	echo $checkout_message | pbcopy
 	echo "THE FOLLOWING LINES HAVE BEEN COPIED TO YOUR BUFFER:\n$checkout_message"
 }
 
