@@ -95,3 +95,7 @@ The CivilCode Inc. dotfiles is based on and inspired by
 
 thoughtbot's original work remains covered under an
 [MIT License](https://github.com/thoughtbot/dotfiles/blob/a8bc74d10c62c813b625c0c8a28a996249d71c4c/LICENSE).
+
+## About CivilCode Inc
+
+CivilCode Inc. is a [custom software development](https://www.civilcode.io) studio developing tailored business applications in [Elixir](http://elixir-lang.org/) and [Phoenix](http://www.phoenixframework.org/) in Montreal, Canada.
