@@ -6,4 +6,6 @@ source $HOME/.civilcode.slack
 
 # custom shell
 
+export PATH="/usr/local/sbin:$PATH"
+
 [[ -f ~/.shrc.local ]] && source ~/.shrc.local
